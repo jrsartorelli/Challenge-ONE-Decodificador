@@ -179,6 +179,10 @@ footer p {
     	padding: 10px 0px 0;
 	}
 
+	.coluna-entrada-texto textarea {
+    	line-height: normal;
+	}	
+
 	.div-botoes {
     	display: inline-block;
 	}
