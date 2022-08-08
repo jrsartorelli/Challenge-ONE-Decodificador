@@ -6,19 +6,19 @@
 		<title>Challenge ONE - Decodificador de Texto</title>
 
 		<link rel="stylesheet" href="reset.css">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="style.css">		
 	</head>
 
 	<body>
 		<main>
 			<div class="grid-conteiner">
 				<div class="coluna-logo-alura">
-					<img src="logo-alura.svg">
+					<img src="img/logo-alura.svg">
 				</div>
 
 				<div class="coluna-entrada-texto">
 					<textarea cols="30" rows="10" id="mensagem" placeholder="Digite seu texto"></textarea>
-					<img src="alerta.svg"><p>Apenas letras minúsculas e sem acento.</p>
+					<img src="img/alerta.svg"><p>Apenas letras minúsculas e sem acento.</p>
 					<div class="div-botoes">
 						<button class="botao-criptografar" id="botao-criptografar">Criptografar</button>
 						<button class="botao-descriptografar" id="botao-descriptografar">Descriptografar</button>
@@ -30,7 +30,7 @@
 						<p class="saida-texto-criptografado" id="saida-texto-criptografado"></p>						
 					</div>
 					<div id="div-imagem">
-						<img class="coluna-saida-texto-imagem" src="imagem-lupa.png">
+						<img class="coluna-saida-texto-imagem" src="img/imagem-lupa.png">
 						<p class="coluna-saida-texto-nenhuma-mensagem">Nenhuma mensagem encontrada</p>
 						<p class="coluna-saida-texto-digite">Digite um texto que você deseja criptografar ou descriptografar.</p>					
 					</div>
@@ -42,70 +42,9 @@
 		</main>
 
 		<footer>
-			<img src="logo_oracleAlura-ptbr.1657102612.svg">
+			<img src="img/logo_oracleAlura-ptbr.1657102612.svg">
 			<p >Aluno ONE - José Ricardo Sartorelli - 2022</p>							
 		</footer>
 	</body>
+	<script src="js/de-codificador.js"></script>
 </html>
-
-<script type="text/javascript">
-	
-	function criptografaDescriptografa(elemento) {
-		
-		var entradaTexto = document.getElementById("mensagem");
-		var texto = entradaTexto.value;
-		var idElemento = elemento.srcElement.attributes.id.value;
-
-		if(texto == "") {
-			alert("Primeiramente digite um texto!");
-		}
-		else {
-
-			if(idElemento == "botao-criptografar") {
-
-				for(var i = 0; i < conteudoOriginal.length; i++) {
-
-					texto = texto.replaceAll(conteudoOriginal[i], chaveCriptografia[i]);
-
-				}
-			}
-			else {
-
-				for(var i = 0; i < conteudoOriginal.length; i++) {
-
-					texto = texto.replaceAll(chaveCriptografia[i], conteudoOriginal[i]);
-
-				}
-
-			}
-
-			document.getElementById("saida-texto-criptografado").innerHTML = texto;			
-			
-			document.getElementById("saida-texto-criptografado").style.display = "grid";
-			document.getElementById("div-botao-copiar").style.display = "grid";
-			document.getElementById("div-imagem").style.display = "none"; 
-
-		}		
-	}
-
-	function copiarParaAreaTransferencia() {
-
-		var conteudo = document.getElementById("saida-texto-criptografado").innerHTML;		
-	    navigator.clipboard.writeText(conteudo);
-
-	}
-
-	var conteudoOriginal = ["e", "i", "a", "o", "u"];
-	var chaveCriptografia = ["enter",  "imes", "ai", "ober", "ufat"];
-
-	var botaoCriptografia = document.getElementById("botao-criptografar");
-	var botaoDescriptografia = document.getElementById("botao-descriptografar");
-	var botaoCopiar = document.getElementById("botao-copiar");
-
-	document.getElementById("saida-texto-criptografado").style.display = "none";
-	document.getElementById("div-botao-copiar").style.display = "none";
-	botaoCriptografia.onclick=criptografaDescriptografa;	
-	botaoDescriptografia.onclick=criptografaDescriptografa;
-	botaoCopiar.onclick=copiarParaAreaTransferencia;
-					
-</script>
